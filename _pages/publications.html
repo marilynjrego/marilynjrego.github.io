@@ -1,36 +1,26 @@
 ---
-layout: archive
+layout: single
 title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
-
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
+<div class="entry-list">
+  {% assign pub_items = site.publications | sort: 'date' | reverse %}
+  {% for item in pub_items %}
+    <article class="entry-item">
+      <h2 class="entry-item__title">{{ item.title }}</h2>
+      <p class="entry-item__date">{{ item.date | date: "%B %Y" }} &middot; {{ item.venue }}</p>
+      <input type="checkbox" id="pub-toggle-{{ forloop.index }}" class="entry-item__toggle-checkbox">
+      <div class="entry-item__body">
+        {{ item.content }}
+      </div>
+      <label for="pub-toggle-{{ forloop.index }}" class="entry-item__toggle-label">
+        <span class="entry-item__label-more">Show more</span>
+        <span class="entry-item__label-less">Show less</span>
+      </label>
+    </article>
   {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
-
-
-
+</div>

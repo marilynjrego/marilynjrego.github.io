@@ -1,0 +1,11 @@
+---
+title: "SpliDT: Partitioned Decision Trees for Scalable Stateful ML Inference at Line Rate"
+collection: talks
+type: "Talk and Poster"
+permalink: /talks/2025-09-01-techcon-splidt
+venue: "TECHCON"
+date: 2025-09-01
+location: "Austin, TX, USA"
+---
+
+Talk and poster on SpliDT, a technique for partitioning decision trees to enable scalable, stateful ML inference at line rate on programmable network hardware.

@@ -11,16 +11,35 @@
   animation: intro 0.3s both;
   animation-delay: 0.35s;
 
+  // @include container (susy) centers this box with margin: auto once
+  // max-width applies. On wide viewports that shifted the whole box far
+  // from the true left edge — on top of the padding-left below — producing
+  // a huge gap after the sidebar. Force it flush left instead; any leftover
+  // width just becomes empty margin on the right.
+  margin-left: 0;
+
+  // Reserve room for the fixed-position author sidebar (see _sidebar.scss:
+  // left offset 40px + width 220px + 20px gutter) so main content never
+  // renders underneath it, at any viewport width.
+  @include breakpoint($large) {
+    padding-left: 280px;
+    padding-right: 2em;
+  }
+
+  // Wider ceiling than the theme default ($x-large, 1280px) — that left a
+  // large empty margin on wide monitors. Still capped, just less severely.
   @include breakpoint($x-large) {
-    max-width: $x-large;
+    max-width: 1600px;
   }
 }
 
 .page {
+  // No susy span/prefix/suffix here: those were sized for an in-flow left
+  // sidebar (now fixed/out of flow, handled by #main's own padding-left)
+  // plus a right-hand widget sidebar this site doesn't use. Just fill the
+  // width #main already reserved.
   @include breakpoint($large) {
-    @include span(10 of 12 last);
-    @include prefix(0.5 of 12);
-    @include suffix(2 of 12);
+    width: 100%;
   }
 
   .page__inner-wrap {

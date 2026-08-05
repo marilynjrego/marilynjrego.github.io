@@ -1,24 +1,27 @@
 /* ==========================================================================
     DEFAULT THEME - LIGHT VERSION
     ========================================================================== */
-/* Color codes used for the theme */
-$primary-color              : #2f7f93;
+/* Light-blue "cloud sky" palette: soft sky-blue ground, drifting white cloud highlights */
+$primary-color              : #2f7dd1;
 $gray                       : #7a8288;
 $dark-gray                  : mix(#000, $gray, 40%);
 $darker-gray                : mix(#000, $gray, 60%);
 $light-gray                 : mix(#fff, $gray, 50%);
 $lighter-gray               : mix(#fff, $gray, 90%);
+$link-hover                 : mix(#000, $primary-color, 20%);
+$link-visited               : mix(#fff, $primary-color, 25%);
+$fig-caption-color          : mix(#fff, $dark-gray, 25%);
 
 /* Color codes used for the site */
-$danger-color               : #ee5f5b;
-$info-color                 : #2f7f93;
+$danger-color               : #dc2626;
+$info-color                 : #2f7dd1;
 $notice-color               : #7a8288;
-$success-color              : #62c462;
-$warning-color              : #f89406;
+$success-color              : #16a34a;
+$warning-color              : #d97706;
 
 /* Other basic settings for the template */
-$border-radius              : 4px;
-$box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.125);
+$border-radius              : 14px;
+$box-shadow                 : 0 8px 30px rgba(47, 125, 209, 0.1);
 $global-transition          : all 0.2s ease-in-out;
 $masthead-height            : 70px;
 $navicon-width              : 28px;
@@ -29,20 +32,40 @@ $sidebar-screen-min-width   : 1024px;
 /* Default light theme for the site */
 :root {
     --global-base-color                 : #{$primary-color};
-    --global-bg-color                   : #fff;
-    --global-footer-bg-color            : #f2f3f3;
-    --global-border-color               : #{$lighter-gray};
-    --global-dark-border-color          : #bdc1c4;
-    --global-code-background-color      : #fafafa;
+    --global-bg-color                   : #e3eefa;
+    --global-footer-bg-color            : #d6e6f7;
+    --global-border-color               : #c7ddf2;
+    --global-dark-border-color          : #a9cbec;
+    --global-code-background-color      : #dae9f8;
     --global-code-text-color            : #{$darker-gray};
-    --global-fig-caption-color          : mix(#fff,  #{$dark-gray}, 25%);
-    --global-link-color                 : #52adc8;
-    --global-link-color-hover           : mix(#000, #2f7f93, 25%);
-    --global-link-color-visited         : mix(#fff, #2f7f93, 25%);  
+    --global-fig-caption-color          : #{$fig-caption-color};
+    --global-link-color                 : #{$primary-color};
+    --global-link-color-hover           : #{$link-hover};
+    --global-link-color-visited         : #{$link-visited};
     --global-masthead-link-color        : #{$dark-gray};
-    --global-masthead-link-color-hover  : mix(#000, #{$gray}, 25%);    
-    --global-text-color                 : #{$dark-gray};
+    --global-masthead-link-color-hover  : #{$primary-color};
+    --global-text-color                 : #1a1d21;
     --global-text-color-light           : #{$light-gray};
-    --global-thead-color                : #{$lighter-gray};
+    --global-thead-color                : #c7ddf2;
 }
 
+/* Drifting cloud backdrop — soft white blobs over a pale sky-blue gradient.
+   Scoped to "not dark" so it never leaks into the dark theme.
+   Note: background-attachment: fixed combined with several stacked
+   gradients renders unreliably in Safari (sometimes collapsing to a flat
+   fill), so this uses the default "scroll" attachment instead — visually
+   near-identical for a page this length, but far more consistently
+   rendered across browsers. Kept on body (not html): body already paints
+   its own opaque background-color on top of html's, which would otherwise
+   hide an image placed on html entirely. */
+html:not([data-theme="dark"]) body {
+    background-image:
+        radial-gradient(ellipse 55% 30% at 12% -8%,  rgba(255, 255, 255, 1), rgba(255, 255, 255, 0) 60%),
+        radial-gradient(ellipse 45% 26% at 85% 0%,    rgba(255, 255, 255, 1),  rgba(255, 255, 255, 0) 62%),
+        radial-gradient(ellipse 60% 32% at 50% 18%,   rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0) 65%),
+        radial-gradient(ellipse 65% 34% at 20% 100%,  rgba(255, 255, 255, 0.8),  rgba(255, 255, 255, 0) 70%),
+        radial-gradient(ellipse 55% 30% at 90% 96%,   rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0) 70%),
+        linear-gradient(180deg, #a3cbef 0%, #cbe3f6 40%, #f4f9fd 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
