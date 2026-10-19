@@ -1,0 +1,22 @@
+# Pieces shown on the Art page, in display order.
+# `file` is the name in images/art/web/ (the gallery uses <file>-thumb.jpg, the
+# full view uses <file>.jpg). Edit titles/mediums freely.
+
+- file: river
+  title: Forest Stream
+  medium: Painting
+- file: tiger
+  title: Tiger
+  medium: Pencil
+- file: seattle_art
+  title: Lavender Fields
+  medium: Painting
+- file: lemur
+  title: Ring-tailed Lemur
+  medium: Pencil
+- file: rabbit
+  title: Rabbit and Butterfly
+  medium: Ink
+- file: parents
+  title: My Parents :)
+  medium: Pencil

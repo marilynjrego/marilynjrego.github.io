@@ -10,7 +10,7 @@ Hi, I'm Marilyn! I'm a Ph.D. student in CSE at the [University of Michigan](http
 
 Previously, I did my B.S. in Computer Science at Purdue and interned at Adobe as a Research Scientist/Engineer. Here's my [CV](/files/CV.pdf).
 
-Outside of research, I enjoy traveling, trying new food, and painting.
+Outside of research, I enjoy traveling, trying new food, and [painting](/art/).
 
 ## News
 

@@ -21,3 +21,6 @@ package-lock.json
 
 # Ignore files created by MacOS
 .DS_Store
+
+# Full-resolution art photos stay local; the site uses the resized copies in images/art/web/
+/images/art/*.jpg
