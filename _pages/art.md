@@ -4,7 +4,7 @@ permalink: /art/
 author_profile: true
 ---
 
-Outside of research, I like to draw and paint — mostly pencil and ink drawings, and painted landscapes. Click any piece to see it larger.
+Outside of research, I like to draw and paint, mostly pencil and ink drawings, and painted landscapes. Click any piece to see it larger!
 
 <div class="art-gallery">
 {% for piece in site.data.art %}
