@@ -6,26 +6,30 @@ redirect_from:
   - /about/
   - /about.html
 ---
-Hi, this is Marilyn! I'm a Ph.D. student in Computer Science and Engineering at the [University of Michigan](https://cse.engin.umich.edu/), advised by [Muhammad Shahbaz](https://gitlab.com/mshahbaz/mshahbaz.gitlab.io/-/wikis/home).
+Hi, I'm Marilyn! I'm a Ph.D. student in CSE at the [University of Michigan](https://cse.engin.umich.edu/), advised by [Muhammad Shahbaz](https://gitlab.com/mshahbaz/mshahbaz.gitlab.io/-/wikis/home). I build systems for large-scale AI — **distributed LLM inference**, **heterogeneous computing**, and **hardware–software co-design**.
 
-My research sits at the intersection of machine learning and computer systems. I'm interested in building the infrastructure behind large-scale AI, with a focus on distributed AI systems, heterogeneous computing, LLM inference systems, and hardware–software co-design. As an SRC Research Scholar, I'm currently working on communication-efficient systems for cross-region LLM inference across geographically distributed data centers.
-
-Before Michigan, I completed my undergrad in Computer Science at Purdue. In Summer 2026, I was a Research Scientist/Engineer Intern at Adobe, where I built CPU–GPU profiling infrastructure for multi-process and multi-node LLM inference workloads.
+Previously, I did my B.S. in Computer Science at Purdue and interned at Adobe as a Research Scientist/Engineer. Here's my [CV](/files/CV.pdf).
 
 Outside of research, I enjoy traveling, trying new food, and painting.
 
-Feel free to browse my [publications](/publications/), [talks](/talks/), or [CV](/files/CV.pdf) or feel free to reach out if you'd like to [connect](/contact/)!
-
 ## News
 
+{% assign news_recent = 6 %}
 <ol class="news-timeline">
-{% for item in site.data.news %}
-  <li class="news-timeline__item">
-    <span class="news-timeline__date">{{ item.date }}</span>
-    <div class="news-timeline__text">{{ item.text | markdownify }}</div>
-  </li>
+{% for item in site.data.news limit: news_recent %}
+  {% include news-item.html item=item %}
 {% endfor %}
 </ol>
+{% if site.data.news.size > news_recent %}
+<details class="news-older">
+  <summary><span class="news-older__more">Show older news</span><span class="news-older__less">Hide older news</span></summary>
+  <ol class="news-timeline">
+  {% for item in site.data.news offset: news_recent %}
+    {% include news-item.html item=item %}
+  {% endfor %}
+  </ol>
+</details>
+{% endif %}
 
 ## Honors & Awards
 

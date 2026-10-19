@@ -6,6 +6,7 @@ permalink: /publication/2025-06-13-forge2025-verifast-llm
 excerpt: 'We evaluate how well GPT-4o generates fully accurate, verifiable specifications for the VeriFast static verifier, using prompt engineering, chain-of-thought, prompt chaining, and few-shot prompting.'
 date: 2025-04-27
 venue: 'FORGE (International Conference on AI Foundation Models and Software Engineering), co-located with ICSE 2025, Ottawa, Ontario, Canada'
+venue_short: "FORGE ’25"
 paperurl: 'https://ieeexplore.ieee.org/document/11052787'
 bibtexurl: '/files/bibtex/rego2025forge.bib'
 citation: '<b>Marilyn Rego</b>*, Wen Fan*, Xin Hu, Sanya Dod, Zhaorui Ni, Danning Xie, Jenna DiVincenzo, Lin Tan. (2025). &quot;Evaluating the Ability of GPT-4o to Generate Verifiable Specifications in VeriFast.&quot; <i>2025 IEEE/ACM Second International Conference on AI Foundation Models and Software Engineering (FORGE)</i>.'

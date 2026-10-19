@@ -6,6 +6,7 @@ permalink: /publication/2026-07-01-naic-activation-compression
 excerpt: 'A learned activation-compression approach for reducing the network cost of cross-regional LLM inference.'
 date: 2026-08-01
 venue: '3rd Workshop on Networks for AI Computing (NAIC) @ ACM SIGCOMM 2026'
+venue_short: "NAIC @ SIGCOMM ’26"
 paperurl: 'https://doi.org/10.1145/3789240.3828744'
 bibtexurl: '/files/bibtex/mcdonald2026naic.bib'
 citation: 'Regan McDonald, <b>Marilyn Rego</b>, Ertza Warraich, Annus Zulfiqar, Muhammad Shahbaz. (2026). &quot;Towards Network-Efficient Cross-Regional Inference via Learned Activation Compression.&quot; <i>3rd Workshop on Networks for AI Computing (NAIC) @ ACM SIGCOMM 2026</i>.'

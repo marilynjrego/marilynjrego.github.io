@@ -1,39 +1,61 @@
 /* ==========================================================================
    NEWS TIMELINE — vertical timeline on the About page, fed by _data/news.yml.
+   Each item gets an icon badge on the rail, coloured by item type.
    ========================================================================== */
 
 .news-timeline {
-  list-style: none;
-  margin: 1em 0 2em;
-  padding: 0;
-  border-left: 2px solid var(--global-border-color);
-}
+  --news-icon-size: 28px;
 
-.news-timeline__item {
   position: relative;
-  margin: 0;
-  padding: 0 0 1.1em 1.4em;
+  list-style: none;
+  margin: 1em 0 0;
+  padding: 0;
 
-  // Dot sitting on the timeline rail.
+  // The rail, centred under the icon badges.
   &::before {
     content: "";
     position: absolute;
-    left: -7px;
-    top: 0.35em;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--global-bg-color);
-    border: 2px solid var(--global-base-color);
+    top: 0.4em;
+    bottom: 0.4em;
+    left: calc(var(--news-icon-size) / 2 - 1px);
+    width: 2px;
+    background: var(--global-border-color);
   }
+}
 
-  &:first-child::before {
-    background: var(--global-base-color);
-  }
+.news-timeline__item {
+  --news-accent: var(--global-base-color);
+
+  position: relative;
+  margin: 0;
+  padding: 0 0 1em calc(var(--news-icon-size) + 0.9em);
+  min-height: var(--news-icon-size);
 
   &:last-child {
     padding-bottom: 0;
   }
+}
+
+.news-timeline__item--paper { --news-accent: #2f7dd1; }
+.news-timeline__item--talk { --news-accent: #8b5cf6; }
+.news-timeline__item--award { --news-accent: #d97706; }
+.news-timeline__item--job { --news-accent: #0d9488; }
+.news-timeline__item--education { --news-accent: #db2777; }
+
+.news-timeline__icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--news-icon-size);
+  height: var(--news-icon-size);
+  border-radius: 50%;
+  background: var(--global-bg-color);
+  border: 2px solid var(--news-accent);
+  color: var(--news-accent);
+  font-size: 0.7em;
 }
 
 .news-timeline__date {
@@ -48,5 +70,64 @@
 }
 
 .news-timeline__text p {
-  margin: 0.15em 0 0;
+  margin: 0.1em 0 0;
+}
+
+/* "Show older news" — the older items continue the same timeline below. */
+.news-older {
+  margin: 1em 0 2em;
+
+  > summary {
+    display: inline-block;
+    cursor: pointer;
+    list-style: none;
+    margin-left: calc(28px + 0.9em);
+    color: var(--global-link-color);
+    font-family: $sans-serif;
+    font-weight: 600;
+    font-size: $type-size-6;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &:hover {
+      color: var(--global-link-color-hover);
+    }
+  }
+
+  .news-older__less {
+    display: none;
+  }
+
+  &[open] {
+    .news-older__more {
+      display: none;
+    }
+
+    .news-older__less {
+      display: inline;
+    }
+  }
+
+  // When opened, show the older items above the toggle, joined to the list above.
+  &[open] {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+
+    > .news-timeline {
+      margin-top: 0;
+      padding-top: 1em;
+
+      &::before {
+        top: -0.4em;
+      }
+    }
+
+    > summary {
+      order: 2;
+      margin-top: 1em;
+    }
+  }
 }

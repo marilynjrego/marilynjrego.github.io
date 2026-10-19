@@ -1,0 +1,14 @@
+{% assign item = include.item %}
+{% case item.type %}
+  {% when "paper" %}{% assign icon = "fa-file-lines" %}
+  {% when "talk" %}{% assign icon = "fa-microphone" %}
+  {% when "award" %}{% assign icon = "fa-trophy" %}
+  {% when "job" %}{% assign icon = "fa-briefcase" %}
+  {% when "education" %}{% assign icon = "fa-graduation-cap" %}
+  {% else %}{% assign icon = "fa-circle" %}
+{% endcase %}
+<li class="news-timeline__item news-timeline__item--{{ item.type | default: 'other' }}">
+  <span class="news-timeline__icon" aria-hidden="true"><i class="fa-solid {{ icon }}"></i></span>
+  <span class="news-timeline__date">{{ item.date }}</span>
+  <div class="news-timeline__text">{{ item.text | markdownify }}</div>
+</li>

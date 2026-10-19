@@ -20,6 +20,30 @@
   }
 }
 
+/* Short venue label above the title, e.g. "ISSRE '26". */
+.venue-tag {
+  --venue-accent: #2f7dd1;
+
+  display: inline-block;
+  margin-bottom: 0.45em;
+  padding: 0.15em 0.6em;
+  border-radius: 999px;
+  border: 1px solid var(--venue-accent);
+  color: var(--venue-accent);
+  font-family: $sans-serif;
+  font-size: $type-size-7;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.venue-tag--workshops { --venue-accent: #0d9488; }
+.venue-tag--talks { --venue-accent: #8b5cf6; }
+
+html[data-theme="dark"] .venue-tag {
+  filter: brightness(1.35);
+}
+
 .entry-item__title {
   margin: 0 0 0.2em;
   font-size: $type-size-4;
