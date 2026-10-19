@@ -77,23 +77,47 @@
 .news-older {
   margin: 1em 0 2em;
 
+  // A real button, so the older items don't look like they're missing.
   > summary {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
     cursor: pointer;
     list-style: none;
     margin-left: calc(28px + 0.9em);
+    padding: 0.4em 1em;
+    border: 1px solid var(--global-link-color);
+    border-radius: 999px;
     color: var(--global-link-color);
     font-family: $sans-serif;
     font-weight: 600;
-    font-size: $type-size-6;
+    font-size: 0.9em;
 
     &::-webkit-details-marker {
       display: none;
     }
 
-    &:hover {
-      color: var(--global-link-color-hover);
+    // Chevron: points down when closed, up when open.
+    &::after {
+      content: "";
+      width: 0.45em;
+      height: 0.45em;
+      margin-top: -0.2em;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(45deg);
+      transition: transform 0.2s ease;
     }
+
+    &:hover {
+      background: var(--global-link-color);
+      color: var(--global-bg-color);
+    }
+  }
+
+  &[open] > summary::after {
+    margin-top: 0.2em;
+    transform: rotate(-135deg);
   }
 
   .news-older__less {
@@ -127,6 +151,7 @@
 
     > summary {
       order: 2;
+      align-self: flex-start;
       margin-top: 1em;
     }
   }
