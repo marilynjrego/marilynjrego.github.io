@@ -6,11 +6,11 @@ redirect_from:
   - /about/
   - /about.html
 ---
-Hi, I'm Marilyn! I'm a Ph.D. student in CSE at the [University of Michigan](https://cse.engin.umich.edu/), advised by [Muhammad Shahbaz](https://gitlab.com/mshahbaz/mshahbaz.gitlab.io/-/wikis/home). I build systems for large-scale AI — **distributed LLM inference**, **heterogeneous computing**, and **hardware–software co-design**.
+Hi, I'm Marilyn! I'm a Ph.D. student in CSE at the [University of Michigan](https://cse.engin.umich.edu/), advised by [Muhammad Shahbaz](https://gitlab.com/mshahbaz/mshahbaz.gitlab.io/-/wikis/home). I work on **computer systems and networking**: building distributed systems that run large models across geographically distributed data centers, with a focus on **network-efficient communication**, **heterogeneous computing**, and **hardware–software co-design**.
 
 Previously, I did my B.S. in Computer Science at Purdue and interned at Adobe as a Research Scientist/Engineer. Here's my [CV](/files/CV.pdf).
 
-Outside of research, I enjoy traveling, trying new food, and [painting](/art/).
+Outside of research, I enjoy traveling, trying new food, and [painting!](/art/).
 
 ## News
 

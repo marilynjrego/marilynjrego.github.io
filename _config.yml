@@ -12,7 +12,7 @@ site_theme               : "default" # The available themes options are "default
 title                    : "Marilyn Rego"
 title_separator          : "-"
 name                     : &name "Marilyn Rego"
-description              : &description "Marilyn Rego — Ph.D. student in Computer Science and Engineering at the University of Michigan, working on distributed AI systems, LLM inference systems, and hardware–software co-design."
+description              : &description "Marilyn Rego — Ph.D. student in Computer Science and Engineering at the University of Michigan, working on distributed systems, networking, and hardware–software co-design."
 url                      : https://marilynjrego.github.io # Verify this matches your GitHub Pages URL (Settings > Pages) once the repo is deployed
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "marilynjrego/marilyn.github.io"
