@@ -27,6 +27,46 @@ $entry-small: 0.8125em; // ~13px
   }
 }
 
+/* Optional thumbnail (front matter `image`): above the entry on narrow
+   screens, in a right-hand column from $medium up. Diagrams are drawn on
+   white, so the frame stays white in dark mode too. */
+.entry-item--has-image {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9em;
+
+  @include breakpoint($medium) {
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    gap: 1.5em;
+  }
+}
+
+.entry-item__main {
+  flex: 1;
+  min-width: 0;
+}
+
+.entry-item__thumb {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0.5em;
+  border: 1px solid var(--global-border-color);
+  border-radius: 8px;
+  background: #fff;
+  max-width: 320px;
+
+  @include breakpoint($medium) {
+    width: 240px;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
 /* Short venue label, e.g. "ISSRE '26". Sized relative to the small text around it. */
 .venue-tag {
   --venue-accent: #2f7dd1;

@@ -5,6 +5,8 @@ collection: portfolio
 date: 2025-09-01
 period: "Jan 2024 – Aug 2025"
 affiliation: "Purdue · NextGArch Lab"
+image: /images/research/splidt-tree.png
+image_alt: "Diagram from the SpliDT poster: a decision tree partitioned into subtrees p1–p4, each using its own window of packets w1–w4."
 summary: "Detecting malicious network traffic with ML models that run at line rate on programmable switches."
 venue_tags:
   - label: "SRC TECHCON ’25"

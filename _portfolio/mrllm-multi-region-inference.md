@@ -5,6 +5,8 @@ collection: portfolio
 date: 2026-07-01
 period: "Aug 2025 – Present"
 affiliation: "University of Michigan · SRC Research Scholars Program"
+image: /images/research/mrllm-wan.png
+image_alt: "Diagram from the mrLLM poster: an LLM split across Region A and Region B, with large intermediate activations crossing a bandwidth-limited WAN link."
 summary: "Building communication-efficient systems for LLM inference across geographically distributed data centers, through hardware–software co-design."
 outputs:
   - title: "mrLLM: Fast Multi-Region LLM Inference Using Learned Adapters"

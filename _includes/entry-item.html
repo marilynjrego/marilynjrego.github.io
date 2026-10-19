@@ -8,11 +8,18 @@
     id_prefix – prefix for the Show more checkbox id
   Optional front matter on the item: venue_tags (list of {label, kind}), venue_short,
   authors (Markdown), summary (Markdown), links (list of {label, url}),
-  outputs (list of {title, tag: {label, kind}, links}) for the papers/posters a project produced.
+  outputs (list of {title, tag: {label, kind}, links}) for the papers/posters a project produced,
+  image + image_alt for a thumbnail shown beside the entry.
 {% endcomment %}
 {% assign item = include.item %}
 {% assign body = item.content | strip %}
-<article class="entry-item" id="{{ item.path | split: '/' | last | remove: '.md' }}">
+<article class="entry-item{% if item.image %} entry-item--has-image{% endif %}" id="{{ item.path | split: '/' | last | remove: '.md' }}">
+  {% if item.image %}
+    <figure class="entry-item__thumb">
+      <img src="{{ item.image | relative_url }}" alt="{{ item.image_alt | escape }}" loading="lazy">
+    </figure>
+  {% endif %}
+  <div class="entry-item__main">
   <div class="entry-item__meta">
     {% if item.venue_tags %}
       {% for tag in item.venue_tags %}<span class="venue-tag venue-tag--{{ tag.kind | default: include.kind }}">{{ tag.label }}</span>{% endfor %}
@@ -56,4 +63,5 @@
       </div>
     {% endif %}
   {% endif %}
+  </div>
 </article>
