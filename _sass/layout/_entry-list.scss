@@ -1,7 +1,14 @@
 /* ==========================================================================
-   ENTRY LIST — shared "single flat page, most-recent-first, clamp + expand"
-   layout used by Research, Publications, and Talks.
+   ENTRY LIST — shared "single flat page, most-recent-first, summary + expand"
+   layout used by Research, Publications, Talks, and Teaching
+   (markup in _includes/entry-item.html).
+
+   Three type levels only: the serif title, the summary at body size, and
+   everything else (meta, tags, authors, outputs, links, Show more) at one
+   small size.
    ========================================================================== */
+
+$entry-small: 0.8125em; // ~13px
 
 .entry-list {
   margin-top: 1em;
@@ -20,20 +27,19 @@
   }
 }
 
-/* Short venue label above the title, e.g. "ISSRE '26". */
+/* Short venue label, e.g. "ISSRE '26". Sized relative to the small text around it. */
 .venue-tag {
   --venue-accent: #2f7dd1;
 
   display: inline-block;
-  margin-bottom: 0.45em;
-  padding: 0.15em 0.6em;
+  padding: 0.05em 0.55em;
   border-radius: 999px;
   border: 1px solid var(--venue-accent);
   color: var(--venue-accent);
   font-family: $sans-serif;
-  font-size: $type-size-7;
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  font-size: 0.9em;
+  font-weight: 600;
+  line-height: 1.5;
   white-space: nowrap;
 }
 
@@ -44,19 +50,87 @@ html[data-theme="dark"] .venue-tag {
   filter: brightness(1.35);
 }
 
-.entry-item__title {
-  margin: 0 0 0.2em;
-  font-size: $type-size-4;
+// The page-wide h2 rule adds a border under every heading; entries are
+// already separated by their own border, so drop it here.
+.page__content .entry-item__title {
+  margin: 0.15em 0 0;
+  padding-bottom: 0;
+  border-bottom: none;
+  font-size: 1.2em;
 }
 
-.entry-item__date {
-  margin: 0 0 0.7em;
+/* Tag row: venue tags followed by small date/venue text. */
+.entry-item__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35em 0.5em;
+  font-family: $sans-serif;
+  font-size: $entry-small;
+}
+
+.entry-item__meta-text {
   color: var(--global-text-color);
   opacity: 0.65;
+}
+
+.entry-item__authors,
+.entry-item__summary {
+  p {
+    margin: 0.35em 0 0;
+  }
+}
+
+.entry-item__authors {
+  font-size: $entry-small;
+  opacity: 0.85;
+}
+
+/* Papers/posters a project produced: tag, title, links on one line each. */
+ul.entry-item__outputs {
+  list-style: none;
+  margin: 0.6em 0 0;
+  padding: 0;
+  font-size: $entry-small;
+
+  li {
+    margin: 0 0 0.35em;
+    font-size: 1em;
+    line-height: 1.6;
+  }
+
+  .venue-tag {
+    margin-right: 0.4em;
+  }
+
+  .entry-item__links {
+    margin-left: 0.5em;
+    font-size: 1em;
+  }
+}
+
+/* Paper · Poster · BibTeX ... (p. to outrank the theme's paragraph margins) */
+.entry-item__links,
+p.entry-item__links {
+  margin: 0.5em 0 0;
   font-family: $sans-serif;
-  font-size: $type-size-6;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-size: $entry-small;
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  a + a::before {
+    content: "·";
+    display: inline-block;
+    margin: 0 0.5em;
+    color: var(--global-text-color);
+    opacity: 0.5;
+  }
 }
 
 .entry-item__toggle-checkbox {
@@ -66,36 +140,37 @@ html[data-theme="dark"] .venue-tag {
 }
 
 .entry-item__body {
-  margin: 0;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  margin: 0.5em 0 0;
 
   p:first-child {
     margin-top: 0;
   }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
 }
 
-.entry-item__toggle-checkbox:checked ~ .entry-item__body {
-  -webkit-line-clamp: unset;
-  line-clamp: unset;
-  overflow: visible;
+// Details stay hidden until "Show more" is ticked.
+.entry-item__body--hidden {
+  display: none;
+}
+
+.entry-item__toggle-checkbox:checked ~ .entry-item__body--hidden {
   display: block;
 }
 
 .entry-item__toggle-label {
   display: inline-block;
-  margin-top: 0.6em;
+  margin-top: 0.5em;
   cursor: pointer;
-  color: var(--global-link-color);
+  color: var(--global-text-color);
+  opacity: 0.65;
   font-family: $sans-serif;
-  font-weight: 600;
-  font-size: $type-size-6;
+  font-size: $entry-small;
 
   &:hover {
-    color: var(--global-link-color-hover);
+    opacity: 1;
   }
 }
 

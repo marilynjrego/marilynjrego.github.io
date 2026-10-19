@@ -10,18 +10,7 @@ author_profile: true
 <div class="entry-list">
   {% assign talk_items = site.talks | sort: 'date' | reverse %}
   {% for item in talk_items %}
-    <article class="entry-item" id="{{ item.path | split: '/' | last | remove: '.md' }}">
-      {% if item.venue_short %}<span class="venue-tag venue-tag--talks">{{ item.venue_short }}</span>{% endif %}
-      <h2 class="entry-item__title">{{ item.title }}</h2>
-      <p class="entry-item__date">{{ item.date | date: "%B %Y" }} &middot; {{ item.type }}, {{ item.venue }}, {{ item.location }}</p>
-      <input type="checkbox" id="talk-toggle-{{ forloop.index }}" class="entry-item__toggle-checkbox">
-      <div class="entry-item__body">
-        {{ item.content }}
-      </div>
-      <label for="talk-toggle-{{ forloop.index }}" class="entry-item__toggle-label">
-        <span class="entry-item__label-more">Show more</span>
-        <span class="entry-item__label-less">Show less</span>
-      </label>
-    </article>
+    {% capture meta %}{{ item.date | date: "%b %Y" }} · {{ item.type }} · {{ item.location }}{% endcapture %}
+    {% include entry-item.html item=item kind="talks" meta=meta id_prefix="talk" index=forloop.index %}
   {% endfor %}
 </div>

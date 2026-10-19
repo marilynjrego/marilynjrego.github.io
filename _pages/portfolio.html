@@ -10,17 +10,7 @@ author_profile: true
 <div class="entry-list">
   {% assign research_items = site.portfolio | sort: 'date' | reverse %}
   {% for item in research_items %}
-    <article class="entry-item">
-      <h2 class="entry-item__title">{{ item.title }}</h2>
-      <p class="entry-item__date">{{ item.date | date: "%B %Y" }}</p>
-      <input type="checkbox" id="research-toggle-{{ forloop.index }}" class="entry-item__toggle-checkbox">
-      <div class="entry-item__body">
-        {{ item.content }}
-      </div>
-      <label for="research-toggle-{{ forloop.index }}" class="entry-item__toggle-label">
-        <span class="entry-item__label-more">Show more</span>
-        <span class="entry-item__label-less">Show less</span>
-      </label>
-    </article>
+    {% capture meta %}{{ item.period }}{% if item.affiliation %} · {{ item.affiliation }}{% endif %}{% endcapture %}
+    {% include entry-item.html item=item kind="conferences" meta=meta collapse=true id_prefix="research" index=forloop.index %}
   {% endfor %}
 </div>

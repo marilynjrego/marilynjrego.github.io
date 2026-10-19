@@ -1,0 +1,59 @@
+{% comment %}
+  One entry on the Research / Publications / Talks / Teaching list pages.
+  Params:
+    item      – the collection document
+    kind      – venue-tag colour when the item only has `venue_short` (conferences, workshops, talks)
+    meta      – small text shown after the tags (date, venue, ...)
+    collapse  – true: hide the body behind "Show more"; otherwise show it inline
+    id_prefix – prefix for the Show more checkbox id
+  Optional front matter on the item: venue_tags (list of {label, kind}), venue_short,
+  authors (Markdown), summary (Markdown), links (list of {label, url}),
+  outputs (list of {title, tag: {label, kind}, links}) for the papers/posters a project produced.
+{% endcomment %}
+{% assign item = include.item %}
+{% assign body = item.content | strip %}
+<article class="entry-item" id="{{ item.path | split: '/' | last | remove: '.md' }}">
+  <div class="entry-item__meta">
+    {% if item.venue_tags %}
+      {% for tag in item.venue_tags %}<span class="venue-tag venue-tag--{{ tag.kind | default: include.kind }}">{{ tag.label }}</span>{% endfor %}
+    {% elsif item.venue_short %}
+      <span class="venue-tag venue-tag--{{ include.kind }}">{{ item.venue_short }}</span>
+    {% endif %}
+    {% if include.meta %}<span class="entry-item__meta-text">{{ include.meta }}</span>{% endif %}
+  </div>
+  <h2 class="entry-item__title">{{ item.title }}</h2>
+  {% if item.authors %}<div class="entry-item__authors">{{ item.authors | markdownify }}</div>{% endif %}
+  {% if item.summary %}<div class="entry-item__summary">{{ item.summary | markdownify }}</div>{% endif %}
+  {% if item.outputs %}
+    <ul class="entry-item__outputs">
+      {% for output in item.outputs %}
+        <li>
+          {% if output.tag %}<span class="venue-tag venue-tag--{{ output.tag.kind | default: include.kind }}">{{ output.tag.label }}</span>{% endif %}
+          <span class="entry-item__output-title">{{ output.title }}</span>
+          {% if output.links %}<span class="entry-item__links">{% for link in output.links %}<a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}</span>{% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% if item.links %}
+    <p class="entry-item__links">
+      {% for link in item.links %}<a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}
+    </p>
+  {% endif %}
+  {% if body != "" %}
+    {% if include.collapse %}
+      <input type="checkbox" id="{{ include.id_prefix }}-toggle-{{ include.index }}" class="entry-item__toggle-checkbox">
+      <div class="entry-item__body entry-item__body--hidden">
+        {{ item.content }}
+      </div>
+      <label for="{{ include.id_prefix }}-toggle-{{ include.index }}" class="entry-item__toggle-label">
+        <span class="entry-item__label-more">Show more</span>
+        <span class="entry-item__label-less">Show less</span>
+      </label>
+    {% else %}
+      <div class="entry-item__body entry-item__body--open">
+        {{ item.content }}
+      </div>
+    {% endif %}
+  {% endif %}
+</article>

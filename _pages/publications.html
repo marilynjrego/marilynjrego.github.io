@@ -10,18 +10,7 @@ author_profile: true
 <div class="entry-list">
   {% assign pub_items = site.publications | sort: 'date' | reverse %}
   {% for item in pub_items %}
-    <article class="entry-item" id="{{ item.path | split: '/' | last | remove: '.md' }}">
-      {% if item.venue_short %}<span class="venue-tag venue-tag--{{ item.category | default: 'conferences' }}">{{ item.venue_short }}</span>{% endif %}
-      <h2 class="entry-item__title">{{ item.title }}</h2>
-      <p class="entry-item__date">{{ item.date | date: "%B %Y" }} &middot; {{ item.venue }}</p>
-      <input type="checkbox" id="pub-toggle-{{ forloop.index }}" class="entry-item__toggle-checkbox">
-      <div class="entry-item__body">
-        {{ item.content }}
-      </div>
-      <label for="pub-toggle-{{ forloop.index }}" class="entry-item__toggle-label">
-        <span class="entry-item__label-more">Show more</span>
-        <span class="entry-item__label-less">Show less</span>
-      </label>
-    </article>
+    {% capture meta %}{{ item.date | date: "%b %Y" }} · {{ item.venue_long | default: item.venue }}{% endcapture %}
+    {% include entry-item.html item=item kind=item.category meta=meta collapse=true id_prefix="pub" index=forloop.index %}
   {% endfor %}
 </div>
