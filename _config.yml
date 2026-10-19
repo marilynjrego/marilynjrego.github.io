@@ -12,7 +12,7 @@ site_theme               : "default" # The available themes options are "default
 title                    : "Marilyn Rego"
 title_separator          : "-"
 name                     : &name "Marilyn Rego"
-description              : &description "Marilyn Rego — Ph.D. student in Computer Science and Engineering at the University of Michigan, working on agentic systems, in-network ML, and domain-specific LLMs."
+description              : &description "Marilyn Rego — Ph.D. student in Computer Science and Engineering at the University of Michigan, working on distributed AI systems, LLM inference systems, and hardware–software co-design."
 url                      : https://marilynjrego.github.io # Verify this matches your GitHub Pages URL (Settings > Pages) once the repo is deployed
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "marilynjrego/marilyn.github.io"
@@ -25,7 +25,7 @@ author:
   avatar           : "profile.jpg"
   name             : "Marilyn Rego"
   pronouns         : "she/her"
-  bio              : "Ph.D. student in Computer Science and Engineering at the University of Michigan, researching the intersection of machine learning and computer systems."
+  bio              : "Ph.D. student in Computer Science and Engineering at the University of Michigan."
   location         : "Ann Arbor, MI"
   employer         : "University of Michigan"
   uri              : # URL
@@ -34,7 +34,7 @@ author:
   # Academic websites
   academia         : # URL
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : # URL - add once your Google Scholar profile is set up
+  googlescholar    : "https://scholar.google.com/citations?user=WPhoRLkAAAAJ"
   inspire-hep      : # URL
   impactstory      : # URL
   orcid            : # URL - add once you have an ORCID iD
@@ -89,6 +89,8 @@ publication_category:
     title: 'Journal Articles'    
   conferences:
     title: 'Conference Papers'
+  workshops:
+    title: 'Workshop Papers'
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews
@@ -96,7 +98,6 @@ breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
 future                   : true
 read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
-talkmap_link             : false      #change to true to add link to talkmap on talks page
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
   disqus:

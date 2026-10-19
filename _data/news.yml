@@ -1,0 +1,25 @@
+# News items shown as a timeline on the About page, newest first.
+# `text` is Markdown, so links work.
+
+- date: Sep 2026
+  text: Our empirical study of LLM-generated specifications for VeriFast appears at [ISSRE 2026](/publications/#2026-06-01-issre-verifast-empirical-study).
+- date: Aug 2026
+  text: Our paper on learned activation compression for cross-regional inference appears at the [NAIC Workshop @ SIGCOMM 2026](/publications/#2026-07-01-naic-activation-compression).
+- date: Aug 2026
+  text: Won the Robustness category at the Adobe Research Code Quality Jam.
+- date: May 2026
+  text: Joined Adobe in Seattle as a Research Scientist/Engineer Intern.
+- date: May 2026
+  text: Presented a [poster](/files/mrLLM_poster.pdf) on [mrLLM](/talks/#2026-05-01-nsdi26-mrllm) at USENIX NSDI 2026, supported by a USENIX NSDI Student Grant.
+- date: Apr 2026
+  text: Elected a member of the [Tau Beta Pi](https://www.tbp.org/home.cfm) Engineering Honor Society, University of Michigan chapter.
+- date: Sep 2025
+  text: Gave a talk and [poster](/files/SpliDT_MarilynRego_poster.pdf) on [SpliDT](/talks/#2025-09-01-techcon-splidt) at SRC TECHCON 2025.
+- date: Aug 2025
+  text: Started my Ph.D. at the University of Michigan as a Rackham Fellow and SRC Research Scholar.
+- date: May 2025
+  text: Graduated from Purdue with a B.S. in Computer Science.
+- date: Apr 2025
+  text: Received a USENIX NSDI Student Grant to attend NSDI 2025.
+- date: Apr 2025
+  text: Our paper on GPT-4o-generated VeriFast specifications appears at [FORGE 2025](/publications/#2025-06-13-forge2025-verifast-llm).

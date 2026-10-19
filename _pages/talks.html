@@ -7,14 +7,10 @@ author_profile: true
 
 {% include base_path %}
 
-{% if site.talkmap_link == true %}
-<p style="text-decoration:underline;"><a href="/talkmap.html">See a map of all the places I've given a talk!</a></p>
-{% endif %}
-
 <div class="entry-list">
   {% assign talk_items = site.talks | sort: 'date' | reverse %}
   {% for item in talk_items %}
-    <article class="entry-item">
+    <article class="entry-item" id="{{ item.path | split: '/' | last | remove: '.md' }}">
       <h2 class="entry-item__title">{{ item.title }}</h2>
       <p class="entry-item__date">{{ item.date | date: "%B %Y" }} &middot; {{ item.type }}, {{ item.venue }}, {{ item.location }}</p>
       <input type="checkbox" id="talk-toggle-{{ forloop.index }}" class="entry-item__toggle-checkbox">
